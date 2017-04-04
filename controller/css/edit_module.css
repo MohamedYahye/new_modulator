@@ -1,0 +1,29 @@
+*{
+	font-family: 'Varela Round', sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+
+.module_setting {
+	margin-top: 50px;
+    margin-left: 94px;
+    background-color: bisque;
+    width: 500px;
+    height: 500px;
+    padding: 5px;
+}
+
+.list_group{
+	position: absolute;
+    left: 54%;
+    top: 16%;
+}
+
+.group > td:hover{
+	cursor: pointer;
+}
+
+.group-selected{
+	background-color: #2ecc71;
+}

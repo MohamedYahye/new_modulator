@@ -1,0 +1,54 @@
+*{
+	font-family: 'Varela Round', sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+
+.user_info > form{
+	margin-top: 2%;
+	margin-left: 5%;
+}
+
+.user_info > form > input{
+	width: 500px;
+	height: 40px;
+	margin: 5px;
+	padding-left: 5px;
+}
+
+.user_info > form > label{
+	margin-left: 5px;
+}
+
+.changePassword {
+	position: absolute;
+    left: 56%;
+    top: 11%;
+}
+
+.changePassword > input{
+	width: 500px;
+	height: 40px;
+	margin: 5px;
+	padding-left: 5px;
+	margin-top: 12px;
+}
+
+.incorrect{
+	border: 1px solid red;
+}
+
+.correct{
+	border: none;
+}
+
+.change-password > input{
+	width: 500px;
+	height: 40px;
+	padding-left: 5px;
+}
+
+.change-password > input[type='submit']{
+	width: 505px;
+}
