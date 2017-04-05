@@ -84,8 +84,8 @@
 
 								echo "
 							        <tr>
-							           <td><span class='groep_naam'>" . $name . "</span></td>
-							           <td><a href=editgroep.php?group=".base64_encode($name)."><i class='fa fa-pencil-square-o edit' aria-hidden='true'></i></a></td>
+							           <td><span class='groep_naam'>" . $name['groep_naam'] . "</span></td>
+							           <td><a href=editgroep.php?group=".base64_encode($name['groep_naam'])."><i class='fa fa-pencil-square-o edit' aria-hidden='true'></i></a></td>
 							           <td><i class='fa fa-trash delete' aria-hidden='true'></i></td>
 
 							        </tr>";

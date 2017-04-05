@@ -8,16 +8,16 @@
 .module_setting {
 	margin-top: 50px;
     margin-left: 94px;
-    background-color: bisque;
-    width: 500px;
+    background-color: #f7f7f7;
+    width: 77%;
     height: 500px;
     padding: 5px;
 }
 
 .list_group{
 	position: absolute;
-    left: 54%;
-    top: 16%;
+    left: 46.5%;
+    top: 12%;
 }
 
 .group > td:hover{
@@ -26,4 +26,18 @@
 
 .group-selected{
 	background-color: #2ecc71;
+}
+
+.current-module-users{
+	position: absolute;
+    top: 12%;
+    left: 30%;
+}
+
+
+.current-module-users > table > tbody tr > td{
+    cursor: pointer;
+}
+.group-selected-remove > td{
+    background-color: #ff5858 !important;
 }

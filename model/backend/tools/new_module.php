@@ -93,7 +93,7 @@
 				$dbh = $this->connect->returnConnection();
 
 
-				$stmt = $dbh->prepare("SELECT module_locatie FROM module");
+				$stmt = $dbh->prepare("SELECT module_locatie, module_id FROM module");
 				$stmt->execute();
 
 				$temp = array();
@@ -119,6 +119,10 @@
 				}
 
 				$stmt->execute();
+
+				if($stmt->rowCount() > 0){
+					//$this->DELETE_FROM_MODULE_KOPPEL();
+				}
 
 			}catch(PDOException $e){
 				return $e->getMessage();
@@ -184,6 +188,36 @@
 			}
 
 		}
+
+
+		private function DELETE_FROM_MODULE_KOPPEL(){
+			try{
+
+				
+
+				$this->connect = new connect();
+
+				$dbh = $this->connect->returnConnection();
+
+				
+				$stmt = $dbh->prepare("DELETE FROM module_koppel WHERE module_id NOT IN(SELECT module_id FROM module)");
+
+				$stmt->execute();
+
+				if($stmt->rowCount() > 0){
+					return true;
+				}else{
+					return false;
+				}
+
+			}catch(PDOException $e){
+				return $e->getMessage();
+			}
+
+
+
+		}
+
 
 
 		private function getDirectory(){

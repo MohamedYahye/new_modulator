@@ -1,3 +1,15 @@
 .float{
 	float: left;
 }
+
+#modules{
+	position: absolute;
+    left: 5%;
+    top: 11%;
+}
+
+#frame{
+	position: absolute;
+    left: 20%;
+    top: 11%;
+}

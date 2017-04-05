@@ -52,6 +52,34 @@
 				$stmt->execute();
 
 				if($stmt->rowCount() > 0){
+					$result = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+
+					return $result;
+				}
+
+			}catch(PDOException $e){
+				return $e->getMessage();
+			}
+
+		}
+
+
+		public function getGroupId($groupName){
+			try{
+
+				require_once("../connect.php");
+
+				$connect = new connect();
+
+				$dbh = $connect->returnConnection();
+
+				$stmt = $dbh->prepare("SELECT groep_naam FROM groep where groep_naam=:groep_naam");
+
+				$stmt->bindParam(":groep_naam", $groupName);
+
+				$stmt->execute();
+
+				if($stmt->rowCount() > 0){
 					$result = $stmt->fetch(PDO::FETCH_ASSOC); 
 
 					return $result;

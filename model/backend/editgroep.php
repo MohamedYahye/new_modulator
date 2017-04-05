@@ -398,6 +398,7 @@
 
 
 				if(parseJSOn['success']){
+					location.reload();
 				}else{
 					console.log("oepss..s.s.s");
 				}
@@ -426,7 +427,11 @@
 						    success: function(data) {
 						     	jsonResponse = data;
 
-						     	console.log(jsonResponse);
+						     	var parse = JSON.parse(jsonResponse);
+						     	if(parse.new_member){
+						     		location.reload();
+						     	}
+						     	
 						    }
 						 });
 					}

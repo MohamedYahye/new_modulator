@@ -13,7 +13,6 @@
 
 	$does_module_exist = $new_module->does_module_exist();
 
-
 	if(isset($_GET['edit_module'])){
 		require_once("edit_module.php");
 		die();
@@ -22,10 +21,15 @@
 
 	if(isset($_GET['module'])){
 
+
 		$path = "../../modules/".$_GET['module'];
 
-		echo "<iframe src=".$path." style='width: 1000px; height: 1000px;'></iframe>";
-		die();
+		if(glob($path . "/*")){
+			echo "<div id='frame'><iframe src=".$path." style='width: 1000px; height: 1000px;'></iframe></div>";
+		}else{
+			echo "file dir is empty(var)";
+		}
+		//die();
 	}
 
 ?>
@@ -38,6 +42,7 @@
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="../../controller/css/pure-table.css">
 	<link rel="stylesheet" type="text/css" href="../../controller/css/home_beheerder.css">
+	<link rel="stylesheet" type="text/css" href="../../controller/css/modules.css">
 </head>
 <body>
 
@@ -67,7 +72,7 @@
 		$currentUser = $session->returnUsername();
 
 
-		$stmt = $dbh->prepare("SELECT recht_id FROM student WHERE student_id=:student_id");
+		$stmt = $dbh->prepare("SELECT student_id,recht_id FROM student WHERE student_id=:student_id");
 
 		$stmt->bindParam(":student_id", $currentUser);
 
@@ -109,7 +114,14 @@
 				echo "</tbody>
 						</table>";
 			}else{
-				echo "<table class='pure-table pure-table-bordered'>
+
+				require_once('tools/getModule_currentuser.php');
+
+				$user_modules = getModuleCurrentUser::getModule($currentUser);
+
+
+				if(!empty(is_array($user_modules))){
+					echo "<div id='modules'><table class='pure-table pure-table-bordered'>
 				    <thead>
 				        <tr>
 				            <th>Beschikbare modules</th>
@@ -117,17 +129,49 @@
 				    </thead>
 				    <tbody>";
 
-				foreach($result as $_dir){
-					if($_dir['module_status'] != 0){
-						echo "<tr><td><a href=modules.php?module=".$_dir['module_locatie'].">".$_dir['module_locatie']."</a></td></tr>";
+					foreach($user_modules as $module){
+						$path = "../../modules/".$module;
+
+
+						if(glob($path . "/*")){
+							echo "<tr><td><a href=modules.php?module=".$module.">".$module."</a></td></tr>";
+						}else{
+							return false;
+						}
+
+						
 					}
+
+					echo "</tbody>
+							</table></div>";
+				}else{
+					return false;
+				}
+			}
+
+				
+
+				// die();
+
+				// echo "<table class='pure-table pure-table-bordered'>
+				//     <thead>
+				//         <tr>
+				//             <th>Beschikbare modules</th>
+				//         </tr>
+				//     </thead>
+				//     <tbody>";
+
+				// foreach($result as $_dir){
+				// 	if($_dir['module_status'] != 0){
+				// 		echo "<tr><td><a href=modules.php?module=".$_dir['module_locatie'].">".$_dir['module_locatie']."</a></td></tr>";
+				// 	}
 
 					
-				}
+				// }
 
-				echo "</tbody>
-						</table>";
-					}
+				// echo "</tbody>
+				// 		</table>";
+				// 	}
 
 		}
 
