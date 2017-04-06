@@ -25,6 +25,7 @@
 				<li><a href="index.php">Home</a></li>
 				<li><a href="groepen.php">Groepen</a></li>
 				<li><a href="modules.php">Modules</a></li>
+				<li><a href="beheer.php">Beheer</a></li>
 				<li><a href="account.php">Account</a></li>
 				<li><a href="../logout.php">Uitloggen</a></li>
 			</ul>
