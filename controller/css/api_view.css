@@ -1,0 +1,36 @@
+*{
+	margin: 0;
+	font-family: 'Varela Round', sans-serif;
+	padding: 0;
+}
+
+.inner >h3{
+	margin-left: 117px;
+    margin-top: 10px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+.api_holders{
+	position: absolute;
+    left: 43%;
+    top: 1%;
+}
+
+.api_holders > h3{
+	margin-top: 10px;
+	text-align: center;
+	font-weight: 300;
+	margin-bottom: 20px;
+}
+
+.give:hover{
+	background-color: #2ecc71;
+    cursor: pointer;
+    color: #fff;
+}
+
+.take:hover{
+	background-color: #ff7171;
+    cursor: pointer;
+    color: #fff;
+}

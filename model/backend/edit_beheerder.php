@@ -15,7 +15,7 @@
 	<div class="container">
 		<div class="_inner_con">
 
-		<h3>Beheerders bewerken</h3>
+		
 
 		<div class="all_beheerder">
 			
@@ -32,6 +32,7 @@
 			$stmt->execute();
 
 			if($stmt->rowCount() > 0){
+				echo "<h3>Beheerders bewerken</h3>";
 				$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 				echo "<table class='pure-table pure-table-bordered' id='reload'>
 					    <thead>
@@ -52,6 +53,8 @@
 				}
 
 				echo "</body></table>";
+			}else{
+				echo "<h3>Geen beheerders</h3>";
 			}
 
 
